@@ -8,6 +8,11 @@ const App = () => {
   const mystate = useSelector((state) => state.changeTheNumber);
   const dispatch = useDispatch();
   const [counter, setCounter] = useState(0);
+  const [curtime, setCurTime] = useState(0);
+
+  setInterval(() => {
+    setCurTime(new Date().toLocaleTimeString());
+  }, 2000);
   return (
     <>
       <div className="main-div">
@@ -43,6 +48,10 @@ const App = () => {
         <h4> This for use state counter </h4>
         <p>{counter}</p>
         <button onClick={() => setCounter(counter + 1)}>click me</button>
+      </div>
+      <div className="container">
+        <h4> This forcurrent time </h4>
+        <p>{curtime}</p>
       </div>
     </>
   );
