@@ -1,8 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import "./App.css";
+//for reducer
 import { useSelector, useDispatch } from "react-redux";
 import { incNumber, decNumber } from "./actions/index";
+//for contextAPI
+import ContextComA from "./ContextComA";
+import { createContext } from "react";
+export const FirstName = createContext();
 
 const App = () => {
   const mystate = useSelector((state) => state.changeTheNumber);
@@ -52,6 +57,11 @@ const App = () => {
       <div className="container">
         <h4> This forcurrent time </h4>
         <p>{curtime}</p>
+      </div>
+      <div className="container">
+        <FirstName.Provider value={"URVI"}>
+          <ContextComA />
+        </FirstName.Provider>
       </div>
     </>
   );
