@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { incNumber, decNumber } from "./actions/index";
@@ -7,6 +7,7 @@ import { incNumber, decNumber } from "./actions/index";
 const App = () => {
   const mystate = useSelector((state) => state.changeTheNumber);
   const dispatch = useDispatch();
+  const [counter, setCounter] = useState(0);
   return (
     <>
       <div className="main-div">
@@ -37,6 +38,11 @@ const App = () => {
             </a>
           </div>
         </div>
+      </div>
+      <div className="container">
+        <h4> This for use state counter </h4>
+        <p>{counter}</p>
+        <button onClick={() => setCounter(counter + 1)}>click me</button>
       </div>
     </>
   );
