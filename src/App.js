@@ -8,6 +8,7 @@ import { incNumber, decNumber } from "./actions/index";
 import ContextComA from "./ContextComA";
 import { createContext } from "react";
 export const FirstName = createContext();
+export const LastName = createContext();
 
 const App = () => {
   const mystate = useSelector((state) => state.changeTheNumber);
@@ -60,7 +61,9 @@ const App = () => {
       </div>
       <div className="container">
         <FirstName.Provider value={"URVI"}>
-          <ContextComA />
+          <LastName.Provider value={"Patil"}>
+            <ContextComA />
+          </LastName.Provider>
         </FirstName.Provider>
       </div>
     </>
